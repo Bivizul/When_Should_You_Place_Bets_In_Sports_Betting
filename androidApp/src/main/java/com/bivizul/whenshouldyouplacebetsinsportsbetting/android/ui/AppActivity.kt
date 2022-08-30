@@ -17,8 +17,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.material.SnackbarHost
 import androidx.compose.runtime.collectAsState
-import com.github.jetbrains.rssreader.app.FeedSideEffect
-import com.github.jetbrains.rssreader.app.FeedStore
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedSideEffect
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedStore
 import kotlinx.coroutines.flow.*
 
 class AppActivity : ComponentActivity() {

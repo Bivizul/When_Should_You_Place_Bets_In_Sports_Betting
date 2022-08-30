@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
-import com.github.jetbrains.rssreader.core.entity.Post
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Post
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -3,8 +3,8 @@ package com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.theme.WhenWhouldYouPlaceBetsInSportsBetting
-import com.github.jetbrains.rssreader.core.entity.Feed
-import com.github.jetbrains.rssreader.core.entity.Post
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Feed
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Post
 
 @Preview
 @Composable

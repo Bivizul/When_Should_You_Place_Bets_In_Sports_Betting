@@ -1,6 +1,6 @@
-package com.github.jetbrains.rssreader.core.datasource.network
+package com.bivizul.whenshouldyouplacebetsinsportsbetting.core.datasource.network
 
-import com.github.jetbrains.rssreader.core.entity.Feed
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Feed
 import io.ktor.http.*
 
 interface FeedParser {

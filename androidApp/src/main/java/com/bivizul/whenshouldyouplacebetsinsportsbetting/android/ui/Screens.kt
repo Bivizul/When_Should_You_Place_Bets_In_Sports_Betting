@@ -12,8 +12,8 @@ import androidx.compose.ui.platform.LocalContext
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import com.github.jetbrains.rssreader.app.FeedAction
-import com.github.jetbrains.rssreader.app.FeedStore
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedAction
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedStore
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState

@@ -15,9 +15,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.R
-import com.github.jetbrains.rssreader.app.FeedAction
-import com.github.jetbrains.rssreader.app.FeedStore
-import com.github.jetbrains.rssreader.core.entity.Feed
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedAction
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedStore
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Feed
 
 @Composable
 fun FeedList(store: FeedStore) {

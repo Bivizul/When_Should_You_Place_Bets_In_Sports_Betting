@@ -2,7 +2,7 @@ package com.bivizul.whenshouldyouplacebetsinsportsbetting.android.worker
 
 import android.content.Context
 import androidx.work.*
-import com.github.jetbrains.rssreader.core.RssReader
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.RssReader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent

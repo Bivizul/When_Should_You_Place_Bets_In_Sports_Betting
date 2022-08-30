@@ -17,7 +17,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.R
-import com.github.jetbrains.rssreader.core.entity.Feed
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Feed
 
 @Composable
 fun AddFeedDialog(

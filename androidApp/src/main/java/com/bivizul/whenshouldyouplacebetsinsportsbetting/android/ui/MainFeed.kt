@@ -10,10 +10,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.github.jetbrains.rssreader.app.FeedAction
-import com.github.jetbrains.rssreader.app.FeedStore
-import com.github.jetbrains.rssreader.core.entity.Feed
-import com.github.jetbrains.rssreader.core.entity.Post
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedAction
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedStore
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Feed
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Post
 import kotlinx.coroutines.launch
 
 @Composable

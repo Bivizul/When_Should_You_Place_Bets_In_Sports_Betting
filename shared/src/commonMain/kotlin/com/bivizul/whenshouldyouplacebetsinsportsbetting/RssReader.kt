@@ -1,8 +1,8 @@
-package com.github.jetbrains.rssreader.core
+package com.bivizul.whenshouldyouplacebetsinsportsbetting
 
-import com.github.jetbrains.rssreader.core.datasource.network.FeedLoader
-import com.github.jetbrains.rssreader.core.datasource.storage.FeedStorage
-import com.github.jetbrains.rssreader.core.entity.Feed
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.datasource.network.FeedLoader
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.datasource.storage.FeedStorage
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Feed
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope

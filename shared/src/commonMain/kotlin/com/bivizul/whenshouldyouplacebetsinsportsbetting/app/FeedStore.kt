@@ -1,7 +1,7 @@
-package com.github.jetbrains.rssreader.app
+package com.bivizul.whenshouldyouplacebetsinsportsbetting.app
 
-import com.github.jetbrains.rssreader.core.RssReader
-import com.github.jetbrains.rssreader.core.entity.Feed
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.RssReader
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Feed
 import io.github.aakira.napier.Napier
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

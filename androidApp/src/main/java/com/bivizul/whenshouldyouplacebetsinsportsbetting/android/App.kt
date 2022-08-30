@@ -3,8 +3,8 @@ package com.bivizul.whenshouldyouplacebetsinsportsbetting.android
 import android.app.Application
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.worker.RefreshWorker
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.create
-import com.github.jetbrains.rssreader.app.FeedStore
-import com.github.jetbrains.rssreader.core.RssReader
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedStore
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.RssReader
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

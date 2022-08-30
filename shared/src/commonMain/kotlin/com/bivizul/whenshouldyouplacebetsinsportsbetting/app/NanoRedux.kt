@@ -1,4 +1,4 @@
-package com.github.jetbrains.rssreader.app
+package com.bivizul.whenshouldyouplacebetsinsportsbetting.app
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
