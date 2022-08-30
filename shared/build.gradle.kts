@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")
+    id("com.squareup.sqldelight") version "1.5.3"
 }
 
 kotlin {
@@ -33,6 +34,11 @@ kotlin {
                 //Network
                 implementation(libs.ktor.core)
                 implementation(libs.ktor.logging)
+                implementation(libs.ktor.negotiation)
+                implementation(libs.ktor.json)
+                implementation(libs.ktor.cio)
+                // SQL
+                implementation(libs.sqldelight.runtime)
                 //Coroutines
                 implementation(libs.kotlinx.coroutines.core)
                 //Logger
@@ -54,6 +60,8 @@ kotlin {
             dependencies {
                 //Network
                 implementation(libs.ktor.client.okhttp)
+                // SQL
+                implementation(libs.sqldelight.android.driver)
             }
         }
         val androidTest by getting
@@ -68,6 +76,8 @@ kotlin {
             dependencies {
                 //Network
                 implementation(libs.ktor.client.ios)
+                // SQL
+                implementation(libs.sqldelight.native.driver)
             }
         }
         val iosX64Test by getting
@@ -100,5 +110,11 @@ android {
     }
     dependencies {
         coreLibraryDesugaring(libs.desugar.jdk.libs)
+    }
+}
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "com.bivizul.whenshouldyouplacebetsinsportsbetting.core.datasource.database"
     }
 }
