@@ -1,6 +1,5 @@
 package com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,27 +13,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberAsyncImagePainter
-import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Post
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.ConticItem
 import java.text.SimpleDateFormat
 import java.util.*
 
 @Composable
-fun PostList(
+fun ConticList(
     modifier: Modifier,
-    posts: List<Post>,
+    conticItems: List<ConticItem>,
     listState: LazyListState,
-    onClick: (Post) -> Unit
+    onClick: (ConticItem) -> Unit
 ) {
     LazyColumn(
         modifier = modifier,
         contentPadding = PaddingValues(16.dp),
         state = listState
     ) {
-        itemsIndexed(posts) { i, post ->
+        itemsIndexed(conticItems) { i, contic ->
             if (i == 0) Spacer(Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
-            PostItem(post) { onClick(post) }
-            if (i != posts.size - 1) Spacer(modifier = Modifier.size(16.dp))
+            ConticItem(contic) { onClick(contic) }
+            if (i != conticItems.size - 1) Spacer(modifier = Modifier.size(16.dp))
         }
     }
 }
@@ -42,8 +40,8 @@ fun PostList(
 private val dateFormatter = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
 
 @Composable
-fun PostItem(
-    item: Post,
+fun ConticItem(
+    item: ConticItem,
     onClick: () -> Unit
 ) {
     val padding = 16.dp
@@ -61,14 +59,14 @@ fun PostItem(
                     style = MaterialTheme.typography.h6,
                     text = item.title
                 )
-                item.imageUrl?.let { url ->
-                    Spacer(modifier = Modifier.size(padding))
-                    Image(
-                        painter = rememberAsyncImagePainter(url),
-                        modifier = Modifier.height(180.dp).fillMaxWidth(),
-                        contentDescription = null
-                    )
-                }
+//                item.imageUrl?.let { url ->
+//                    Spacer(modifier = Modifier.size(padding))
+//                    Image(
+//                        painter = rememberAsyncImagePainter(url),
+//                        modifier = Modifier.height(180.dp).fillMaxWidth(),
+//                        contentDescription = null
+//                    )
+//                }
                 item.desc?.let { desc ->
                     Spacer(modifier = Modifier.size(padding))
                     Text(
@@ -80,13 +78,13 @@ fun PostItem(
                     )
                 }
                 Spacer(modifier = Modifier.size(padding))
-                Text(
-                    modifier = Modifier.padding(start = padding, end = padding),
-                    style = MaterialTheme.typography.body2,
-                    color = MaterialTheme.colors.onSurface.copy(alpha = 0.7f),
-                    text = dateFormatter.format(Date(item.date))
-                )
-                Spacer(modifier = Modifier.size(padding))
+//                Text(
+//                    modifier = Modifier.padding(start = padding, end = padding),
+//                    style = MaterialTheme.typography.body2,
+//                    color = MaterialTheme.colors.onSurface.copy(alpha = 0.7f),
+//                    text = dateFormatter.format(Date(item.date))
+//                )
+//                Spacer(modifier = Modifier.size(padding))
             }
         }
     }

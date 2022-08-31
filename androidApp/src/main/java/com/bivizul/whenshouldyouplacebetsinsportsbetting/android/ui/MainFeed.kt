@@ -10,34 +10,37 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.ConticStore
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedAction
-import com.bivizul.whenshouldyouplacebetsinsportsbetting.app.FeedStore
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Feed
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.core.entity.Post
 import kotlinx.coroutines.launch
 
 @Composable
 fun MainFeed(
-    store: FeedStore,
+    store: ConticStore,
     onPostClick: (Post) -> Unit,
     onEditClick: () -> Unit,
 ) {
     val state = store.observeState().collectAsState()
-    val posts = remember(state.value.feeds, state.value.selectedFeed) {
-        (state.value.selectedFeed?.posts ?: state.value.feeds.flatMap { it.posts })
+    val posts = remember(state.value.feeds, state.value.selectedConticItem) {
+        (state.value.selectedConticItem?.posts ?: state.value.feeds.flatMap { it.posts })
             .sortedByDescending { it.date }
     }
+//    val contics = remember (state.value
+//
+//            )
     Column {
         val coroutineScope = rememberCoroutineScope()
         val listState = rememberLazyListState()
-        PostList(
+        ConticList(
             modifier = Modifier.weight(1f),
-            posts = posts,
+            conticItems = posts,
             listState = listState
         ) { post -> onPostClick(post) }
         MainFeedBottomBar(
             feeds = state.value.feeds,
-            selectedFeed = state.value.selectedFeed,
+            selectedFeed = state.value.selectedConticItem,
             onFeedClick = { feed ->
                 coroutineScope.launch { listState.scrollToItem(0) }
                 store.dispatch(FeedAction.SelectFeed(feed))

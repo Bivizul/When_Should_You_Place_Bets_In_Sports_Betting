@@ -1,5 +1,5 @@
 package com.bivizul.whenshouldyouplacebetsinsportsbetting
 
-class Settings(val defaultFeedUrls: Set<String>) {
-    fun isDefault(feedUrl: String) = defaultFeedUrls.contains(feedUrl)
+class Settings(val defaultConticsUrls: Set<String>) {
+    fun isDefault(conticsUrl: String) = defaultConticsUrls.contains(conticsUrl)
 }

@@ -14,10 +14,10 @@ import kotlinx.coroutines.launch
 data class FeedState(
     val progress: Boolean,
     val feeds: List<Feed>,
-    val selectedFeed: Feed? = null //null means selected all
+    val selectedContic: Feed? = null //null means selected all
 ) : State
 
-fun FeedState.mainFeedPosts() = (selectedFeed?.posts ?: feeds.flatMap { it.posts }).sortedByDescending { it.date }
+fun FeedState.mainFeedPosts() = (selectedContic?.posts ?: feeds.flatMap { it.posts }).sortedByDescending { it.date }
 
 sealed class FeedAction : Action {
     data class Refresh(val forceLoad: Boolean) : FeedAction()
@@ -78,7 +78,7 @@ class FeedStore(
             }
             is FeedAction.SelectFeed -> {
                 if (action.feed == null || oldState.feeds.contains(action.feed)) {
-                    oldState.copy(selectedFeed = action.feed)
+                    oldState.copy(selectedContic = action.feed)
                 } else {
                     launch { sideEffect.emit(FeedSideEffect.Error(Exception("Unknown feed"))) }
                     oldState
@@ -86,7 +86,7 @@ class FeedStore(
             }
             is FeedAction.Data -> {
                 if (oldState.progress) {
-                    val selected = oldState.selectedFeed?.let {
+                    val selected = oldState.selectedContic?.let {
                         if (action.feeds.contains(it)) it else null
                     }
                     FeedState(false, action.feeds, selected)

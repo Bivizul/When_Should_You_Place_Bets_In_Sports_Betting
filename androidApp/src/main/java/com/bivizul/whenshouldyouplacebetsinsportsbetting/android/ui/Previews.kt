@@ -18,7 +18,7 @@ private fun FeedItemPreview() {
 @Composable
 private fun PostPreview() {
     WhenWhouldYouPlaceBetsInSportsBetting {
-        PostItem(item = PreviewData.post, onClick = {})
+        ConticItem(item = PreviewData.post, onClick = {})
     }
 }
 
