@@ -44,16 +44,16 @@ fun getSpliskadia(context: Context, activity: Activity) {
 }
 
 fun getSpliskaid(pref: SharedPreferences): String {
-    var capid = pref.getString("behome", "noBehome") ?: "noBehome"
-    if (capid == "noBehome") {
+    var spliskaid = pref.getString("spliska", "noSpliska") ?: "noSpliska"
+    if (spliskaid == "noSpliska") {
         val dateNow = Date()
         val simpleDateFormat = SimpleDateFormat("yyMMddhhmmssMs")
         val datetime = simpleDateFormat.format(dateNow)
         val randomNum = (10000 until 100000).random()
-        capid = datetime + randomNum
-        pref.edit().putString("behome", capid).apply()
+        spliskaid = datetime + randomNum
+        pref.edit().putString("spliska", spliskaid).apply()
     }
-    return capid
+    return spliskaid
 }
 
 fun checkSpliskanet(context: Context): Boolean {

@@ -17,8 +17,10 @@ import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.LoadingConte
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.SpliskaActivity
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.main.MainScreen
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.util.Conspliska.KEY_SPLISKA
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.util.Conspliska.PREFSPLISKA
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.entity.Spliska
-import com.bivizul.whenshouldyouplacebetsinsportsbetting.repository.SpliskaRepository
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.network.repository.SpliskaRepository
+import com.onesignal.OneSignal
 
 class SpliskaScreen() : Screen {
 
@@ -29,27 +31,33 @@ class SpliskaScreen() : Screen {
         val context = LocalContext.current
         val activity = LocalContext.current as Activity
         val navigator = LocalNavigator.currentOrThrow
-        val prefspliska = activity.getSharedPreferences("prefspliska", Context.MODE_PRIVATE)
+        val prefspliska = activity.getSharedPreferences(PREFSPLISKA, Context.MODE_PRIVATE)
 
         LaunchedEffect(Unit) {
-            repository.getResspliska(Spliska(
-                getSpliskamm(),
-                getSpliskasim(context),
-                getSpliskaid(prefspliska),
-                getSpliskal(),
-                getSpliskat()
-            ))
+            try {
+                repository.getResspliska(Spliska(
+                    getSpliskamm(),
+                    getSpliskasim(context),
+                    getSpliskaid(prefspliska),
+                    getSpliskal(),
+                    getSpliskat()
+                ))
+            } catch (e: Exception) {
+                getSpliskadia(context, activity)
+            }
         }
 
         val resspliska by repository.resspliska.collectAsState(initial = null)
 
         Log.e("qwer", "resspliska : ${resspliska?.resspliska}")
+
         LoadingContent()
+
         resspliska?.resspliska?.let {
             if (it == "no") {
                 navigator.push(MainScreen())
             } else if (it == "nopush") {
-//                OneSignal.disablePush(true)
+                OneSignal.disablePush(true)
                 navigator.push(MainScreen())
             } else {
                 val spliskantent = Intent(activity, SpliskaActivity::class.java)
@@ -57,6 +65,5 @@ class SpliskaScreen() : Screen {
                 activity.startActivity(spliskantent)
             }
         }
-
     }
 }

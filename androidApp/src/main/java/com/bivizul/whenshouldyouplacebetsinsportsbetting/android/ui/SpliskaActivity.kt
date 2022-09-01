@@ -135,7 +135,7 @@ class SpliskaActivity : ComponentActivity(), AdvancedWebView.Listener {
         spliskaSettings.displayZoomControls = false
         spliskaSettings.useWideViewPort = true
         spliskaSettings.setSupportZoom(true)
-//        webSettings.setAppCacheEnabled(true)
+//        spliskaSettings.setAppCacheEnabled(true)
         spliskaSettings.userAgentString = spliskaSettings.userAgentString.replace("; wv", "")
     }
 

@@ -1,4 +1,4 @@
-package com.bivizul.whenshouldyouplacebetsinsportsbetting.repository
+package com.bivizul.whenshouldyouplacebetsinsportsbetting.network.repository
 
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.entity.Resspliska
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.entity.Spliska
@@ -12,9 +12,9 @@ class SpliskaRepository() {
     private val requestApi = RequestApi()
 
     private val _resspliska = MutableSharedFlow<Resspliska>()
-    val resspliska : SharedFlow<Resspliska> = _resspliska.asSharedFlow()
+    val resspliska: SharedFlow<Resspliska> = _resspliska.asSharedFlow()
 
-    suspend fun getResspliska(spliska: Spliska){
+    suspend fun getResspliska(spliska: Spliska) {
         val response = requestApi.getResspliska(spliska)
         _resspliska.emit(response)
     }

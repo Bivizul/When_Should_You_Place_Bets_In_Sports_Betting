@@ -2,12 +2,11 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     kotlin("plugin.serialization")
-    id("com.squareup.sqldelight") version "1.5.3"
 }
 
 kotlin {
     android()
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -28,8 +27,7 @@ kotlin {
              ├─ iosArm64
              ├─ iosSimulatorArm64
          */
-
-        val commonMain by getting{
+        val commonMain by getting {
             dependencies {
                 //Network
                 implementation(libs.ktor.core)
@@ -37,8 +35,6 @@ kotlin {
                 implementation(libs.ktor.negotiation)
                 implementation(libs.ktor.json)
                 implementation(libs.ktor.cio)
-                // SQL
-                implementation(libs.sqldelight.runtime)
                 //Coroutines
                 implementation(libs.kotlinx.coroutines.core)
                 //Logger
@@ -47,8 +43,6 @@ kotlin {
                 implementation(libs.kotlinx.serialization.json)
                 //Key-Value storage
                 implementation(libs.multiplatform.settings)
-                // DI
-                api(libs.koin.core)
             }
         }
         val commonTest by getting {
@@ -56,12 +50,10 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting{
+        val androidMain by getting {
             dependencies {
                 //Network
                 implementation(libs.ktor.client.okhttp)
-                // SQL
-                implementation(libs.sqldelight.android.driver)
             }
         }
         val androidTest by getting
@@ -76,8 +68,6 @@ kotlin {
             dependencies {
                 //Network
                 implementation(libs.ktor.client.ios)
-                // SQL
-                implementation(libs.sqldelight.native.driver)
             }
         }
         val iosX64Test by getting
@@ -93,12 +83,9 @@ kotlin {
 }
 
 android {
-//    compileSdk = 32
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-//        minSdk = 24
-//        targetSdk = 32
         minSdk = (findProperty("android.minSdk") as String).toInt()
         targetSdk = (findProperty("android.targetSdk") as String).toInt()
     }
@@ -110,11 +97,5 @@ android {
     }
     dependencies {
         coreLibraryDesugaring(libs.desugar.jdk.libs)
-    }
-}
-
-sqldelight {
-    database("AppDatabase") {
-        packageName = "com.bivizul.whenshouldyouplacebetsinsportsbetting.core.datasource.database"
     }
 }

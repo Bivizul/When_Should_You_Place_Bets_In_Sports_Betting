@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">When Should You Place Bets In Sports Betting</string>
+    <string name="introduction">Introduction</string>
+    <string name="other_things">Other things</string>
 </resources>

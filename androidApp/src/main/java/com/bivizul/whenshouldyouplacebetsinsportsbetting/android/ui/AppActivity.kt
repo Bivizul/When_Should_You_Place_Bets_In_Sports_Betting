@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.navigator.Navigator
 import com.bivizul.thebeginnersguidetobettingonformula1.util.checkSpliskanet
 import com.bivizul.thebeginnersguidetobettingonformula1.util.getSpliskadia
-import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.main.MainScreen
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.spliska.SpliskaScreen
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.theme.WhenWhouldYouPlaceBetsInSportsBetting
 
@@ -18,7 +17,7 @@ class AppActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if(checkSpliskanet(this)){
+        if (checkSpliskanet(this)) {
             setContent {
                 WhenWhouldYouPlaceBetsInSportsBetting {
                     Box(
@@ -29,7 +28,6 @@ class AppActivity : ComponentActivity() {
                         )
                     ) {
                         Scaffold(
-//                        scaffoldState = scaffoldState,
                             snackbarHost = { hostState ->
                                 SnackbarHost(
                                     hostState = hostState,
@@ -40,20 +38,18 @@ class AppActivity : ComponentActivity() {
                                     )
                                 )
                             }
-                        ) {
-                            Navigator(
-                                screen = SpliskaScreen(),
-//                            onBackPressed = {
-//
-//                            }
-                            )
+                        ) { padding ->
+                            Box(modifier = Modifier
+                                .fillMaxSize()
+                                .padding(padding)) {
+                                Navigator(screen = SpliskaScreen())
+                            }
                         }
                     }
                 }
             }
         } else {
-            getSpliskadia(this,this)
+            getSpliskadia(this, this)
         }
-
     }
 }

@@ -5,7 +5,6 @@ plugins {
 }
 
 android {
-//    compileSdk = 32
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
     defaultConfig {
         applicationId = "com.bivizul.whenshouldyouplacebetsinsportsbetting.android"
@@ -14,17 +13,6 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
-
-//    signingConfigs {
-//        create("release") {
-//            storeFile = file("./key/key.jks")
-//            com.android.build.gradle.internal.cxx.configure.gradleLocalProperties(rootDir).apply {
-//                storePassword = getProperty("storePwd")
-//                keyAlias = getProperty("keyAlias")
-//                keyPassword = getProperty("keyPwd")
-//            }
-//        }
-//    }
 
     buildTypes {
         create("debugPG") {
@@ -40,7 +28,6 @@ android {
         }
         getByName("release") {
             isMinifyEnabled = true
-//            signingConfig = signingConfigs.getByName("release")
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -65,9 +52,9 @@ android {
         //desugar utils
         coreLibraryDesugaring(libs.desugar.jdk.libs)
         // AdvancedWebView
-        implementation (libs.android.advancedwebview)
+        implementation(libs.android.advancedwebview)
         // OneSignal
-        implementation (libs.android.onesignal)
+        implementation(libs.android.onesignal)
         //Compose
         implementation(libs.androidx.compose.ui)
         implementation(libs.androidx.compose.ui.tooling)
@@ -80,17 +67,12 @@ android {
         //Coroutines
         implementation(libs.kotlinx.coroutines.core)
         implementation(libs.kotlinx.coroutines.android)
-        //DI
-        implementation(libs.koin.core)
-        implementation(libs.koin.android)
         //Navigation
         implementation(libs.voyager.navigator)
-        //WorkManager
-        implementation(libs.work.runtime.ktx)
     }
 }
 dependencies {
     implementation("androidx.appcompat:appcompat:1.5.0")
-    implementation("com.google.android.material:material:1.4.0")
+    implementation("com.google.android.material:material:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 }

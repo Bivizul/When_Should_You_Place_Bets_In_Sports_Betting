@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.sp
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.R
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.theme.Shapes
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.theme.Typography
-import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.theme.transparentWhite
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.util.BackImage
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.entity.Contics
 
@@ -27,7 +26,6 @@ fun MainContent(
     contics: Contics,
     onClick: () -> Unit,
 ) {
-
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -60,7 +58,7 @@ fun MainContent(
                     verticalArrangement = Arrangement.SpaceAround
                 ) {
                     Text(
-                        text = "Introduction",
+                        text = stringResource(R.string.introduction),
                         style = Typography.h3
                     )
                     Text(
@@ -71,13 +69,12 @@ fun MainContent(
                         onClick = onClick
                     ) {
                         Text(
-                            text = "Other things",
+                            text = stringResource(R.string.other_things),
                             fontSize = 18.sp
                         )
                     }
                 }
             }
         }
-
     }
 }

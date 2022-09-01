@@ -24,12 +24,12 @@ private val LightColorPalette = lightColors(
     background = transparentWhite,
     onBackground = Color.Black,
 
-)
+    )
 
 @Composable
 fun WhenWhouldYouPlaceBetsInSportsBetting(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colors = if (darkTheme) {
         DarkColorPalette
