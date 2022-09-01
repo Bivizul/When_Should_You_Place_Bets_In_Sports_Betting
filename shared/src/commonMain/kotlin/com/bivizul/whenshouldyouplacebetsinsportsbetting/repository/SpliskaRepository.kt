@@ -16,7 +16,6 @@ class SpliskaRepository() {
 
     suspend fun getResspliska(spliska: Spliska){
         val response = requestApi.getResspliska(spliska)
-        println("SpliskaRepository response : $response")
         _resspliska.emit(response)
     }
 

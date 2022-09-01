@@ -64,6 +64,10 @@ android {
         implementation(project(":shared"))
         //desugar utils
         coreLibraryDesugaring(libs.desugar.jdk.libs)
+        // AdvancedWebView
+        implementation (libs.android.advancedwebview)
+        // OneSignal
+        implementation (libs.android.onesignal)
         //Compose
         implementation(libs.androidx.compose.ui)
         implementation(libs.androidx.compose.ui.tooling)
@@ -85,10 +89,8 @@ android {
         implementation(libs.work.runtime.ktx)
     }
 }
-
-//dependencies {
-//    implementation(project(":shared"))
-//    implementation("com.google.android.material:material:1.4.0")
-//    implementation("androidx.appcompat:appcompat:1.3.1")
-//    implementation("androidx.constraintlayout:constraintlayout:2.1.0")
-//}
+dependencies {
+    implementation("androidx.appcompat:appcompat:1.5.0")
+    implementation("com.google.android.material:material:1.4.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+}

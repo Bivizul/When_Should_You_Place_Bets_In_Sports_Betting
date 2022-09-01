@@ -17,8 +17,6 @@ import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.util.Conspliska
 @Composable
 fun LoadingContent() {
 
-    Log.e("qwer","LoadingContent")
-
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
