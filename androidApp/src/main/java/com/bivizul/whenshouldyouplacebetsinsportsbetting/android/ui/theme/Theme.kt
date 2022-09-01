@@ -33,18 +33,6 @@ fun WhenWhouldYouPlaceBetsInSportsBetting(
         LightColorPalette
     }
 
-//    val systemUiController = rememberSystemUiController()
-
-//    if(darkTheme){
-//        systemUiController.setSystemBarsColor(
-//            color = DarkColorPalette.primaryVariant
-//        )
-//    }else{
-//        systemUiController.setSystemBarsColor(
-//            color = LightColorPalette.primaryVariant
-//        )
-//    }
-
     MaterialTheme(
         colors = colors,
         typography = Typography,
