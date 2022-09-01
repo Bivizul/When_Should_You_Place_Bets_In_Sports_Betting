@@ -33,25 +33,6 @@ class MainScreen() : Screen, KoinComponent {
             System.exit(0)
         }
 
-        /*val screenModel = rememberScreenModel { ConticModel(repository) }
-        val state by screenModel.state.collectAsState()
-//        LaunchedEffect(currentCompositeKeyHash) {
-//            screenModel.getItem()
-//        }
-        LaunchedEffect(Unit) {
-            screenModel.getItem()
-        }
-        Log.e("qwer","state : $state")
-        when(val result = state){
-            is ConticModel.State.Loading -> { LoadingContent() }
-            is ConticModel.State.Result -> {
-                MainContent(screenModel, result.contics, navigator::pop)}
-        }*/
-
-//        LaunchedEffect(activity) {
-//            activity.window .setBackgroundDrawable("BitmapDrawable")
-//        }
-
         LaunchedEffect(Unit) {
             repository.getContics()
         }
@@ -63,15 +44,6 @@ class MainScreen() : Screen, KoinComponent {
             )
         } else{
             LoadingContent()
-
         }
     }
 }
-
-//class FeedListScreen : Screen, KoinComponent {
-//    @Composable
-//    override fun Content() {
-//        val store: FeedStore by inject()
-//        FeedList(store = store)
-//    }
-//}

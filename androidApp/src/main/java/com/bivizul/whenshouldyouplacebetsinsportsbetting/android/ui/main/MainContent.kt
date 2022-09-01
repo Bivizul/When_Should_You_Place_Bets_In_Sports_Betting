@@ -1,47 +1,83 @@
 package com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.main
 
-import android.content.res.Configuration
-import android.util.Log
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
-import coil.compose.AsyncImage
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.R
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.theme.Shapes
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.theme.Typography
+import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.ui.theme.transparentWhite
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.util.BackImage
-import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.util.Conspliska.IMAGE_H
-import com.bivizul.whenshouldyouplacebetsinsportsbetting.android.util.Conspliska.IMAGE_V
 import com.bivizul.whenshouldyouplacebetsinsportsbetting.entity.Contics
 
 @Composable
 fun MainContent(
+    modifier: Modifier = Modifier,
     contics: Contics,
-//    navigator:Navigator,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
 
-    Log.e("qwer","MainContent")
-
-    Box(modifier = Modifier.fillMaxSize()) {
+    Surface(
+        modifier = Modifier.fillMaxSize()
+    ) {
         BackImage()
-        Column() {
-            Text(text = contics.intro)
-            Button(
-//                onClick = {
-//                navigator.push(NextScreen())
-//                }
-                onClick = onClick
+        Column(
+            modifier = modifier
+                .background(MaterialTheme.colors.background)
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Box(
+                modifier = Modifier.weight(0.3f),
+                contentAlignment = Alignment.Center
             ) {
-                Text(text = "Contic")
+                Text(
+                    text = stringResource(id = R.string.app_name),
+                    style = Typography.h4,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colors.onBackground
+                )
             }
-//            Text(
-//                text = instance.toString().substringAfterLast('.'),
-//                style = MaterialTheme.typography.body2
-//            )
+            Box(modifier = Modifier.weight(0.7f)) {
+                Column(
+                    modifier = modifier
+                        .fillMaxSize()
+                        .clip(shape = Shapes.large)
+                        .background(MaterialTheme.colors.surface)
+                        .padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.SpaceAround
+                ) {
+                    Text(
+                        text = "Introduction",
+                        style = Typography.h3
+                    )
+                    Text(
+                        text = contics.intro,
+                        style = Typography.body1
+                    )
+                    Button(
+                        onClick = onClick
+                    ) {
+                        Text(
+                            text = "Other things",
+                            fontSize = 18.sp
+                        )
+                    }
+                }
+            }
         }
+
     }
 }
